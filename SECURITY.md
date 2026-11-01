@@ -44,3 +44,4 @@ When reporting a vulnerability, please provide:
 - **Zero Telemetry**: We do not store, track, or transmit behavioral analytics.
 - **Client-Side Cryptography**: Keys and project states remain isolated to the user's local hardware substrate.
 - **HTTP Security Headers**: Preloaded HSTS, COOP, Permissions-Policy, and content type sniffing prevention are active by default.
+

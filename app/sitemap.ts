@@ -22,3 +22,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1.0 : route.startsWith("/platforms") ? 0.9 : 0.8,
   }));
 }
+
