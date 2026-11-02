@@ -12,61 +12,56 @@ const faqs: FaqItem[] = [
   {
     question: "What is Entelechæ?",
     answer:
-      "Entelechæ is an independent technology studio and computational research company founded by Sahurain and Tantresh Sahu. We build sovereign platforms, native WebGPU engines, and deterministic systems designed for 100-year horizons.",
+      "Entelechæ is an independent technology company founded by Sahurain and Tantresh Sahu. We build sovereign platforms, native WebGPU engines, and long-horizon computational systems.",
   },
   {
     question: "What makes Atelier Studio sovereign?",
     answer:
-      "Atelier Studio runs directly on local hardware via WebGPU and WebAssembly. Your project files, canvas states, and cryptographic keys remain strictly on your local machine with zero telemetry, zero cloud lock-in, and full offline-first autonomy.",
+      "Atelier runs client-side via native WebGPU and WebAssembly with local-first cryptographic storage. Your work remains completely offline with zero telemetry or cloud lock-in.",
   },
   {
-    question: "How does Entelechæ approach capital and governance?",
+    question: "How does Entelechæ approach funding and governance?",
     answer:
-      "We operate as an independent foundation prioritizing patient capital, sovereign stewardship, and uncompromising engineering craft over rapid venture exit cycles.",
+      "We operate with patient capital and 100-year horizons. We prioritize engineering permanence and craft over venture capital exit cycles.",
   },
   {
-    question: "What disciplines and capabilities do you offer?",
+    question: "How can teams or researchers collaborate with you?",
     answer:
-      "We focus on Platform Engineering (Rust, WebAssembly, WebGPU), Computational Cognition & Synthesis, Editorial Interface Architecture, and Sovereign Escrow protocols.",
+      "We partner with select institutions and independent researchers on cryptographic runtimes and WebGPU engineering. Reach out directly via entelechae@gmail.com.",
   },
   {
-    question: "How can engineering teams or researchers collaborate with you?",
+    question: "Where are your engineering nodes anchored?",
     answer:
-      "We partner with selected institutions, independent researchers, and sovereign studios on cryptographic protocols, WebGPU engineering, and cognitive ergonomics. Reach out to entelechae@gmail.com or sahurain15@gmail.com.",
-  },
-  {
-    question: "Where is Entelechæ based?",
-    answer:
-      "Our core engineering and stewardship nodes are anchored across New Delhi and San Francisco.",
+      "Our founding stewardship and engineering nodes operate across New Delhi and San Francisco.",
   },
 ];
 
 export function EkonFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (idx: number) => {
     setOpenIndex(openIndex === idx ? null : idx);
   };
 
   return (
-    <div className="w-full divide-y divide-white/10 border-y border-white/10">
+    <div className="w-full divide-y divide-white/[0.08] border-y border-white/[0.08]">
       {faqs.map((faq, idx) => {
         const isOpen = openIndex === idx;
         return (
-          <div key={faq.question} className="py-6 sm:py-8 transition-colors">
+          <div key={faq.question} className="py-5 transition-colors">
             <button
               onClick={() => toggle(idx)}
               className="w-full flex items-center justify-between text-left group cursor-pointer"
             >
-              <span className="text-base sm:text-xl font-medium text-white group-hover:text-neutral-300 transition-colors">
+              <span className="text-sm sm:text-base font-normal text-neutral-200 group-hover:text-white transition-colors">
                 {faq.question}
               </span>
-              <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white shrink-0 ml-4 group-hover:bg-white group-hover:text-black transition-all">
+              <div className="text-neutral-500 group-hover:text-white transition-colors shrink-0 ml-4">
                 {isOpen ? <Minus size={14} /> : <Plus size={14} />}
               </div>
             </button>
             {isOpen && (
-              <p className="mt-4 text-sm sm:text-base text-neutral-400 font-light leading-relaxed max-w-3xl pr-8">
+              <p className="mt-3 text-xs sm:text-sm text-neutral-400 font-light leading-relaxed max-w-2xl">
                 {faq.answer}
               </p>
             )}

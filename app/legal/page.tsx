@@ -1,149 +1,116 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { Badge } from "@/components/ui/Badge";
 
 export default function LegalPage() {
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 py-12 sm:py-20 space-y-16">
-      {/* ─── Back to Home ─── */}
+    <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 py-20 sm:py-28 space-y-16 bg-black text-white select-none">
+      {/* ─── Back Link ─── */}
       <div>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-[11px] font-mono text-neutral-500 hover:text-white transition-colors uppercase tracking-wider"
         >
-          <ArrowLeft size={14} />
-          <span>RETURN TO HOME</span>
+          <ArrowLeft size={13} />
+          <span>Return Home</span>
         </Link>
       </div>
 
       {/* ─── Header ─── */}
-      <div className="space-y-6 max-w-4xl">
-        <Badge variant="default">GOVERNANCE & COMPLIANCE</Badge>
-        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
-          Terms & Sovereign Governance.
+      <div className="space-y-4 max-w-3xl">
+        <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
+          GOVERNANCE &amp; COMPLIANCE · REVISED 2026
+        </div>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-white">
+          Terms &amp; Sovereign Governance.
         </h1>
-        <p className="text-neutral-400 text-base sm:text-xl font-light leading-relaxed">
-          Last revised: October 2026. The legal, privacy, and architectural principles governing
-          Entelechae and its associated software platforms.
+        <p className="text-xs sm:text-sm text-neutral-400 font-light leading-relaxed">
+          The legal, privacy, and architectural principles governing Entelechæ and its associated software platforms.
         </p>
       </div>
 
-      {/* ─── Content Grid ─── */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-start">
-        {/* Sticky Table of Contents */}
-        <div className="lg:col-span-4 sticky top-28 space-y-4 rounded-3xl border border-white/10 bg-[#0e0e13]/80 p-6 hidden lg:block">
-          <span className="text-xs font-mono uppercase tracking-widest text-neutral-400 block pb-2 border-b border-white/[0.08]">
-            DOCUMENTS & SECTIONS
-          </span>
-          <nav className="flex flex-col space-y-2 text-sm">
+      {/* ─── Sections (Flat Hairline Layout, No Boxes) ─── */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 pt-8 border-t border-white/[0.08] items-start">
+        {/* Table of Contents */}
+        <div className="lg:col-span-4 sticky top-24 space-y-3 hidden lg:block text-xs font-mono">
+          <div className="text-[10px] uppercase tracking-widest text-neutral-500 pb-2 border-b border-white/[0.06]">
+            SECTIONS
+          </div>
+          <nav className="flex flex-col space-y-2">
             <a href="#terms" className="text-neutral-400 hover:text-white transition-colors">
               01. Terms of Service
             </a>
             <a href="#privacy" className="text-neutral-400 hover:text-white transition-colors">
-              02. Privacy & Telemetry
+              02. Privacy &amp; Telemetry
             </a>
             <a href="#ip" className="text-neutral-400 hover:text-white transition-colors">
               03. Sovereign IP Rights
             </a>
             <a href="#security" className="text-neutral-400 hover:text-white transition-colors">
-              04. Security & Vulnerabilities
+              04. Security Disclosure
             </a>
           </nav>
         </div>
 
-        {/* Legal Text Sections */}
-        <div className="lg:col-span-8 space-y-16 text-neutral-300 font-light leading-relaxed text-sm sm:text-base">
+        {/* Content */}
+        <div className="lg:col-span-8 space-y-12 text-xs sm:text-sm text-neutral-300 font-light leading-relaxed">
           {/* 01 Terms */}
-          <section id="terms" className="space-y-6 border-b border-white/[0.08] pb-12">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-emerald-400 text-xs">SECTION 01</span>
-              <span className="text-neutral-600">•</span>
-              <span className="text-xs font-mono text-neutral-400">TERMS OF SERVICE</span>
+          <section id="terms" className="space-y-3 pb-8 border-b border-white/[0.06]">
+            <div className="text-[10px] font-mono text-neutral-500 uppercase">
+              SECTION 01 · TERMS OF SERVICE
             </div>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
-              1. Platform Engagement & Use
+            <h2 className="text-base sm:text-lg font-medium text-white">
+              Platform Engagement &amp; Use
             </h2>
-            <p>
-              By accessing any software, research dispatch, or platform operated by Entelechae (including
-              Atelier and Entelechae Labs), you agree to be bound by these Terms of Service. If you are
-              engaging on behalf of an institution or organization, you represent that you hold necessary
-              authorization.
+            <p className="text-neutral-400">
+              Accessing Entelechæ platforms (including Atelier and Entelechæ Labs) constitutes acceptance of these sovereign terms.
+              Our runtimes are engineered for professional creators, researchers, and engineers.
             </p>
-            <p>
-              Our software platforms are engineered for professional creators, engineers, and researchers.
-              You agree not to reverse engineer, weaponize, or utilize our runtimes to infringe upon the
-              fundamental rights or intellectual sovereignty of others.
+            <p className="text-neutral-400">
+              You agree not to weaponize, reverse engineer, or deploy our systems to violate the fundamental privacy of others.
             </p>
           </section>
 
           {/* 02 Privacy */}
-          <section id="privacy" className="space-y-6 border-b border-white/[0.08] pb-12">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-emerald-400 text-xs">SECTION 02</span>
-              <span className="text-neutral-600">•</span>
-              <span className="text-xs font-mono text-neutral-400">PRIVACY & TELEMETRY</span>
+          <section id="privacy" className="space-y-3 pb-8 border-b border-white/[0.06]">
+            <div className="text-[10px] font-mono text-neutral-500 uppercase">
+              SECTION 02 · PRIVACY &amp; TELEMETRY
             </div>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
-              2. Absolute Data Sovereignty & Zero Telemetry
+            <h2 className="text-base sm:text-lg font-medium text-white">
+              Absolute Data Sovereignty
             </h2>
-            <p>
-              Unlike legacy cloud providers, Entelechae adheres to an uncompromising local-first privacy
-              doctrine. When using platforms such as Atelier:
+            <p className="text-neutral-400">
+              Entelechæ adheres to a strict local-first privacy doctrine with zero client telemetry tracking.
+              Project files, canvases, and code remain on your local drive with zero remote telemetry beacons or advertising trackers.
             </p>
-            <ul className="space-y-3 pl-4 list-disc text-neutral-400 text-sm">
-              <li>Your project files, creative canvases, and code remain on your local storage.</li>
-              <li>We do not record your keystrokes, gestures, canvas contents, or telemetry.</li>
-              <li>No third-party trackers, analytics pixels, or advertising beacons exist on our sites or runtimes.</li>
-              <li>Any optional cloud synchronization is end-to-end encrypted with keys held exclusively by you.</li>
-            </ul>
           </section>
 
           {/* 03 Sovereign IP */}
-          <section id="ip" className="space-y-6 border-b border-white/[0.08] pb-12">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-emerald-400 text-xs">SECTION 03</span>
-              <span className="text-neutral-600">•</span>
-              <span className="text-xs font-mono text-neutral-400">INTELLECTUAL PROPERTY</span>
+          <section id="ip" className="space-y-3 pb-8 border-b border-white/[0.06]">
+            <div className="text-[10px] font-mono text-neutral-500 uppercase">
+              SECTION 03 · INTELLECTUAL PROPERTY
             </div>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
-              3. Intellectual Property Rights
+            <h2 className="text-base sm:text-lg font-medium text-white">
+              Sovereign User Ownership
             </h2>
-            <p>
-              <strong className="text-white font-medium">Your work belongs to you.</strong> All creative assets,
-              codebases, models, designs, and materials created by you within Atelier or any Entelechae
-              runtime remain 100% your sovereign intellectual property. Entelechae asserts zero claim, license,
-              or royalty over outputs generated by users.
-            </p>
-            <p>
-              The Entelechae brand, wordmarks, underlying proprietary runtimes, and research papers are
-              protected under international intellectual property conventions.
+            <p className="text-neutral-400">
+              Your work belongs entirely to you. All creative assets, codebases, models, and designs produced in Entelechæ runtimes remain 100% your sovereign intellectual property.
             </p>
           </section>
 
           {/* 04 Security */}
-          <section id="security" className="space-y-6">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-emerald-400 text-xs">SECTION 04</span>
-              <span className="text-neutral-600">•</span>
-              <span className="text-xs font-mono text-neutral-400">SECURITY & DISCLOSURE</span>
+          <section id="security" className="space-y-3">
+            <div className="text-[10px] font-mono text-neutral-500 uppercase">
+              SECTION 04 · SECURITY
             </div>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
-              4. Responsible Vulnerability Disclosure
+            <h2 className="text-base sm:text-lg font-medium text-white">
+              Vulnerability Disclosure
             </h2>
-            <p>
-              We take the security and integrity of our cryptographic architectures with utmost seriousness.
-              If you identify any security anomaly or vulnerability within our platforms, report it directly
-              to <a href="mailto:entelechae@gmail.com" className="text-white underline underline-offset-4">entelechae@gmail.com</a>.
-              We commit to acknowledging and triaging verified submissions within 24 hours.
+            <p className="text-neutral-400">
+              If you discover an architectural anomaly or vulnerability, report it directly to <a href="mailto:entelechae@gmail.com" className="text-white underline underline-offset-4">entelechae@gmail.com</a>.
+              We acknowledge and triage verified security reports within 24 hours.
             </p>
           </section>
         </div>
-      </div>
-
-      {/* ─── Footer Sign-off ─── */}
-      <div className="pt-12 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono text-neutral-500">
-        <span>© 2026 ENTELECHÆ. ALL RIGHTS RESERVED.</span>
-        <span>SOVEREIGN JURISDICTION GOVERNANCE</span>
       </div>
     </div>
   );
