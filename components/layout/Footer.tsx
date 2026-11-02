@@ -31,7 +31,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-black text-white pt-20 pb-12 border-t border-white/[0.08]">
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 space-y-16">
-        {/* Top Minimal CTA (No Box, Under 2 Sentences) */}
+        {/* Top Minimal CTA */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-6 pb-12 border-b border-white/[0.08]">
           <div className="space-y-2 max-w-xl">
             <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
@@ -47,7 +47,7 @@ export default function Footer() {
             href="/contact"
             className="text-xs font-mono uppercase tracking-widest text-neutral-400 hover:text-white transition-colors shrink-0 self-start sm:self-auto"
           >
-            Initiate Contact →
+            Initiate →
           </Link>
         </div>
 

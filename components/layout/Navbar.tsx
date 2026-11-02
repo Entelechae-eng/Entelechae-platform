@@ -31,16 +31,16 @@ export default function Navbar() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
         <div
-          className={`w-full max-w-6xl mx-auto px-6 sm:px-8 py-5 flex items-center justify-between transition-all duration-300 ${
+          className={`w-full max-w-6xl mx-auto px-6 sm:px-8 py-4 sm:py-5 flex items-center justify-between transition-all duration-300 ${
             scrolled
-              ? "bg-black/80 backdrop-blur-md border-b border-white/[0.06]"
+              ? "bg-black/85 backdrop-blur-md border-b border-white/[0.08]"
               : "bg-transparent"
           }`}
         >
-          {/* Logo: E. */}
+          {/* Logo: E. ENTELECHÆ */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-white font-medium text-lg tracking-tight group"
+            className="flex items-center gap-2 text-white font-medium text-base sm:text-lg tracking-tight group"
           >
             <span>E.</span>
             <span className="text-[10px] font-mono tracking-widest text-neutral-500 uppercase">
@@ -70,11 +70,12 @@ export default function Navbar() {
               );
             })}
 
+            {/* Initiate Action Button (Minimal Cursor Pill, No Brackets) */}
             <Link
               href="/contact"
-              className="text-xs font-mono tracking-wider text-neutral-400 hover:text-white uppercase transition-colors"
+              className="px-3.5 py-1 rounded-full text-xs font-mono tracking-wider text-neutral-300 hover:text-black hover:bg-white border border-white/15 hover:border-white transition-all uppercase"
             >
-              [Initiate]
+              Initiate
             </Link>
           </nav>
 
@@ -113,9 +114,10 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-white pt-2 border-t border-white/[0.08]"
+              className="text-white pt-3 border-t border-white/[0.08] flex items-center justify-between"
             >
-              Initiate Collaboration →
+              <span>Initiate Contact</span>
+              <span>→</span>
             </Link>
           </motion.div>
         )}
