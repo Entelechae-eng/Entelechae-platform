@@ -1,30 +1,36 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { LiveClock } from "@/components/ui/LiveClock";
 
 const pageLinks = [
   { label: "Overview", href: "/" },
   { label: "Platforms", href: "/platforms" },
-  { label: "Atelier Studio", href: "/platforms/atelier" },
   { label: "Research", href: "/research" },
   { label: "Company", href: "/company" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
-const resourceLinks = [
-  { label: "Sovereign Framework", href: "/platforms" },
-  { label: "Cognitive Ergonomics", href: "/research" },
-  { label: "Terms of Service", href: "/legal" },
-  { label: "Privacy Charter", href: "/legal" },
-  { label: "Security Policy", href: "/legal" },
+const platformLinks = [
+  { label: "Entelechae Visuals", href: "https://entele-visuals.vercel.app/", external: true },
+  { label: "Entelechae Code", href: "https://entelechae-code.vercel.app/", external: true },
+  { label: "Platform Overview", href: "/platforms", external: false },
+  { label: "Atelier Studio", href: "/platforms/atelier", external: false },
+];
+
+const githubLinks = [
+  { label: "GitHub @Entelechae-eng", href: "https://github.com/Entelechae-eng", external: true },
+  { label: "Entele-visuals Repo", href: "https://github.com/Entelechae-eng/Entele-visuals", external: true },
+  { label: "Entelechae-platform Repo", href: "https://github.com/Entelechae-eng/Entelechae-platform", external: true },
+  { label: "Sovereign Charter", href: "/legal", external: false },
 ];
 
 const stewards = [
   { label: "Rain sahu (Co-Founder)", href: "mailto:sahurain15@gmail.com" },
-  { label: "Tantresh Sahu (Co-Founder)", href: "mailto:entelechae@gmail.com" },
-  { label: "Direct Inquiries", href: "mailto:entelechae@gmail.com" },
-  { label: "GitHub Architecture", href: "https://github.com/Entelechae-eng/Entelechae-platform" },
+  { label: "Tantresh Sahu (Co-Founder)", href: "mailto:tantreshsahu@gmail.com" },
+  { label: "Studio Inquiries", href: "mailto:entelechae@gmail.com" },
 ];
 
 export default function Footer() {
@@ -51,8 +57,9 @@ export default function Footer() {
           </Link>
         </div>
 
-        {/* 3 Columns (Minimal Typographic Lists, Zero Boxes) */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 text-xs font-mono">
+        {/* 4 Columns (Minimal Typographic Lists, Zero Boxes) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-xs font-mono">
+          {/* Navigation Pages */}
           <div className="space-y-4">
             <span className="text-neutral-500 uppercase tracking-widest block">
               Pages
@@ -71,25 +78,70 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Official Platforms */}
           <div className="space-y-4">
             <span className="text-neutral-500 uppercase tracking-widest block">
-              Systems
+              Platforms
             </span>
             <ul className="space-y-2.5">
-              {resourceLinks.map((link) => (
+              {platformLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-neutral-400 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-400 hover:text-white transition-colors inline-flex items-center gap-1"
+                    >
+                      <span>{link.label}</span>
+                      <ArrowUpRight size={11} className="text-neutral-600" />
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-neutral-400 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="space-y-4 col-span-2 md:col-span-1">
+          {/* Engineering & GitHub */}
+          <div className="space-y-4">
+            <span className="text-neutral-500 uppercase tracking-widest block">
+              GitHub &amp; Code
+            </span>
+            <ul className="space-y-2.5">
+              {githubLinks.map((link) => (
+                <li key={link.label}>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-400 hover:text-white transition-colors inline-flex items-center gap-1"
+                    >
+                      <span>{link.label}</span>
+                      <ArrowUpRight size={11} className="text-neutral-600" />
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-neutral-400 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Stewardship */}
+          <div className="space-y-4">
             <span className="text-neutral-500 uppercase tracking-widest block">
               Stewardship
             </span>

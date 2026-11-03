@@ -4,74 +4,12 @@ import { ArrowUpRight } from "lucide-react";
 import { LiveClock } from "@/components/ui/LiveClock";
 import { EkonFaq } from "@/components/ui/EkonFaq";
 import { EkonLoader } from "@/components/ui/EkonLoader";
-
-const works = [
-  {
-    id: "atelier-studio",
-    year: "2026",
-    title: "Atelier Studio",
-    tag: "WebGPU Workspace",
-    description:
-      "Native 120 FPS creative canvas with local-first cryptographic storage. Engineered for deterministic workflows with zero cloud dependencies.",
-    image: "/images/atelier-identity.jpg",
-    href: "/platforms/atelier",
-  },
-  {
-    id: "sovereign-engine",
-    year: "2026",
-    title: "Sovereign Engine",
-    tag: "Cryptographic Substrate",
-    description:
-      "Zero-dependency computing architecture engineered from first principles. Built for absolute reproducibility, local data sovereignty, and offline permanence.",
-    image: "/images/entelechae-hero-arch.jpg",
-    href: "/platforms",
-  },
-  {
-    id: "research-labs",
-    year: "2026",
-    title: "Research Labs",
-    tag: "Cognitive Ergonomics",
-    description:
-      "Mathematical models and foundational investigations into generative synthesis. Designed to amplify human agency without algorithmic lock-in.",
-    image: "/images/research-statues.jpg",
-    href: "/research",
-  },
-  {
-    id: "sovereign-escrow",
-    year: "2025",
-    title: "Sovereign Escrow",
-    tag: "Data Vault",
-    description:
-      "Client-side cryptographic attestation and decentralized edge persistence runtimes for institutional data consequence.",
-    image: "/images/city-architecture.jpg",
-    href: "/platforms",
-  },
-  {
-    id: "parent-foundation",
-    year: "2024",
-    title: "Parent Foundation",
-    tag: "Stewardship",
-    description:
-      "Patient capital and founding governance designed for a 100-year horizon, insulating research and engineering from short-term financial cycles.",
-    image: "/images/company-about.jpg",
-    href: "/company",
-  },
-  {
-    id: "cognitive-ergonomics",
-    year: "2024",
-    title: "Cognitive Synthesis",
-    tag: "Interface Primitives",
-    description:
-      "High-density spatial interface architectures calibrated for deep concentration, sensory calibration, and private computing.",
-    image: "/images/research-sculpture.jpg",
-    href: "/research",
-  },
-];
+import { platforms } from "@/data/platforms";
 
 const stats = [
   { value: "100Y", label: "Horizon & Permanence" },
   { value: "120 FPS", label: "Hardware WebGPU" },
-  { value: "90+", label: "Systems & Primitives" },
+  { value: "29K+", label: "Verified Resources" },
   { value: "100%", label: "Local-First Privacy" },
 ];
 
@@ -112,7 +50,7 @@ const endorsements = [
   },
   {
     quote:
-      "Atelier represents a fundamental shift back to software that respects local hardware, client performance, and zero telemetry.",
+      "Atelier and the Entelechae platforms represent a fundamental shift back to software that respects local hardware, client performance, and zero telemetry.",
     author: "Elena Rostova",
     role: "Principal Systems Architect, Kernel Labs",
     avatar: "/images/ekon/avatar-1.jpg",
@@ -196,66 +134,137 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── 3. WORKS (CURSOR-STYLE BORDERLESS MINIMAL LIST, NO BOX) ─── */}
-      <section className="w-full max-w-6xl mx-auto px-6 sm:px-8 py-20 border-t border-white/[0.08]">
+      {/* ─── 3. OFFICIAL PLATFORMS SECTION (CURSOR / META MINIMAL, NO BOX) ─── */}
+      <section id="platforms" className="w-full max-w-6xl mx-auto px-6 sm:px-8 py-20 border-t border-white/[0.08]">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pb-12">
           <div className="space-y-1">
             <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
-              02 / PLATFORMS
+              02 / OFFICIAL PLATFORMS
             </div>
             <h2 className="text-2xl sm:text-3xl font-normal text-white uppercase tracking-tight">
-              Works
+              Platforms
             </h2>
             <p className="text-xs sm:text-sm text-neutral-500">
-              Core platform environments and computational research runtimes.
+              Sovereign software platforms and open-source computational systems engineered by Entelechae.
             </p>
           </div>
 
           <Link
             href="/platforms"
-            className="text-xs font-mono uppercase tracking-widest text-neutral-400 hover:text-white transition-colors"
+            className="text-xs font-mono uppercase tracking-widest text-neutral-400 hover:text-white transition-colors inline-flex items-center gap-1.5"
           >
-            Explore All Platforms →
+            <span>Platform Overview</span>
+            <ArrowUpRight size={13} />
           </Link>
         </div>
 
-        {/* Minimal Borderless Grid (No Heavy Cards / No Background Boxes) */}
+        {/* 2 Flagship Platforms Showcase */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-14">
-          {works.map((work) => (
-            <Link
-              key={work.id}
-              href={work.href}
-              className="group block space-y-3.5 transition-opacity duration-300 hover:opacity-90"
+          {platforms.map((platform) => (
+            <div
+              key={platform.id}
+              className="group space-y-4 transition-opacity duration-300"
             >
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[3px] bg-black">
+              {/* Interface Preview Frame */}
+              <a
+                href={platform.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block relative aspect-[16/10] w-full overflow-hidden rounded-[3px] bg-black border border-white/10 group-hover:border-white/25 transition-colors"
+              >
                 <Image
-                  src={work.image}
-                  alt={work.title}
+                  src={platform.previewImage}
+                  alt={platform.previewAlt}
                   fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute top-3 left-3 text-[10px] font-mono text-neutral-300 uppercase px-2 py-0.5 bg-black/70 backdrop-blur-sm rounded-[2px]">
-                  {work.year}
-                </div>
-              </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
 
-              <div className="space-y-1">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-base sm:text-lg font-medium text-white group-hover:text-neutral-300 transition-colors flex items-center gap-1.5">
-                    <span>{work.title}</span>
-                    <ArrowUpRight size={14} className="text-neutral-500 group-hover:text-white transition-colors" />
-                  </h3>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-500">
-                    {work.tag}
+                {/* Top Status Badges */}
+                <div className="absolute top-3 left-3 flex items-center gap-2">
+                  <span className="text-[10px] font-mono text-neutral-300 uppercase px-2 py-0.5 bg-black/80 backdrop-blur-sm rounded-[2px] border border-white/10">
+                    {platform.status}
+                  </span>
+                  <span className="text-[10px] font-mono text-neutral-400 uppercase px-2 py-0.5 bg-black/60 backdrop-blur-sm rounded-[2px]">
+                    {platform.version}
                   </span>
                 </div>
+
+                {/* Bottom External Link Hint */}
+                <div className="absolute bottom-3 right-3 text-[11px] font-mono text-neutral-300 flex items-center gap-1 px-2.5 py-1 bg-black/80 backdrop-blur-sm rounded-[2px] border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>Launch</span>
+                  <ArrowUpRight size={12} />
+                </div>
+              </a>
+
+              {/* Platform Meta & Details */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-neutral-500">
+                    {platform.category}
+                  </div>
+                  <span className="text-[10px] font-mono text-neutral-500">
+                    {platform.metrics[0].value}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg sm:text-xl font-medium text-white group-hover:text-neutral-200 transition-colors">
+                    {platform.name}
+                  </h3>
+                  <a
+                    href={platform.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-mono uppercase tracking-wider text-neutral-400 hover:text-white transition-colors inline-flex items-center gap-1"
+                  >
+                    <span>Explore</span>
+                    <ArrowUpRight size={12} />
+                  </a>
+                </div>
+
                 <p className="text-xs sm:text-sm text-neutral-400 font-light leading-relaxed">
-                  {work.description}
+                  {platform.description}
                 </p>
+
+                {/* Verified Capabilities Chips */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {platform.capabilities.slice(0, 3).map((cap) => (
+                    <span
+                      key={cap}
+                      className="text-[10px] font-mono text-neutral-400 bg-white/[0.03] border border-white/[0.06] px-2 py-0.5 rounded-[2px]"
+                    >
+                      {cap}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Direct Action Links */}
+                <div className="pt-2 flex items-center gap-4 text-xs font-mono">
+                  <a
+                    href={platform.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-neutral-300 transition-colors inline-flex items-center gap-1 underline underline-offset-4"
+                  >
+                    <span>Launch Platform</span>
+                    <ArrowUpRight size={12} />
+                  </a>
+                  <span className="text-neutral-700">/</span>
+                  <a
+                    href={platform.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:text-white transition-colors inline-flex items-center gap-1"
+                  >
+                    <span>GitHub</span>
+                    <ArrowUpRight size={11} />
+                  </a>
+                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </section>
