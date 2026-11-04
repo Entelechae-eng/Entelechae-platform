@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Check } from "lucide-react";
+import { PlatformVideoPreview } from "@/components/ui/PlatformVideoPreview";
 import { platforms } from "@/data/platforms";
 
 export const metadata = {
@@ -42,30 +43,39 @@ export default function PlatformsPage() {
     <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 py-20 sm:py-28 space-y-20 sm:space-y-28 bg-black text-white select-none">
       {/* ─── Header ─── */}
       <div className="space-y-4 max-w-3xl">
-        <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
+        <div className="text-[11px] font-mono uppercase tracking-widest text-neutral-500">
           01 / OFFICIAL PLATFORMS &amp; ECOSYSTEM
         </div>
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-white">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight">
           Software built to endure.
         </h1>
-        <p className="text-xs sm:text-sm text-neutral-400 font-light leading-relaxed max-w-2xl">
+        <p className="text-sm sm:text-base text-neutral-400 font-normal leading-relaxed max-w-2xl">
           Official production platforms and sovereign computing environments conceived, engineered,
           and maintained by Entelechae (@Entelechae-eng).
         </p>
       </div>
 
-      {/* ─── Ecosystem Metric Strip ─── */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-white/[0.08]">
+      {/* ─── Ecosystem Metric Strip (Defined Cursor Bordered Grid) ─── */}
+      <div className="grid grid-cols-2 md:grid-cols-4 border-y border-white/[0.1] divide-y sm:divide-y-0 sm:divide-x divide-white/[0.1]">
         {ecosystemStats.map((s) => (
-          <div key={s.label} className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-mono text-white tracking-tight">
+          <div key={s.label} className="p-6 sm:p-8 space-y-1">
+            <div className="text-3xl sm:text-4xl font-bold font-mono text-white tracking-tight">
               {s.value}
             </div>
-            <div className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">
+            <div className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider">
               {s.label}
             </div>
           </div>
         ))}
+      </div>
+
+      {/* ─── Platform Video Demonstration ─── */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between text-[11px] font-mono text-neutral-500 uppercase">
+          <span>PLATFORM RUNTIME PREVIEW</span>
+          <span>120 FPS WEBGPU</span>
+        </div>
+        <PlatformVideoPreview />
       </div>
 
       {/* ─── Detailed Platforms Showcase ─── */}
@@ -77,18 +87,18 @@ export default function PlatformsPage() {
             className="space-y-8 scroll-mt-28"
           >
             {/* Platform Sub-Header */}
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-4 border-b border-white/[0.08]">
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-4 border-b border-white/[0.1]">
               <div className="flex items-center gap-3">
-                <span className="text-[10px] font-mono text-neutral-500 uppercase">
+                <span className="text-[11px] font-mono text-neutral-500 uppercase">
                   0{idx + 1}
                 </span>
                 <span className="text-neutral-700">/</span>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-400">
                   {platform.category}
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono uppercase text-neutral-300 px-2 py-0.5 bg-white/[0.04] border border-white/10 rounded-[2px]">
+                <span className="text-[10px] font-mono uppercase text-white px-2.5 py-0.5 bg-white/[0.06] border border-white/15">
                   {platform.status}
                 </span>
                 <span className="text-[10px] font-mono text-neutral-500">
@@ -105,7 +115,7 @@ export default function PlatformsPage() {
                   href={platform.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block relative aspect-[16/10] w-full overflow-hidden rounded-[3px] bg-black border border-white/10 hover:border-white/30 transition-colors"
+                  className="group block relative aspect-[16/10] w-full overflow-hidden border border-white/[0.12] hover:border-white/[0.3] transition-colors"
                 >
                   <Image
                     src={platform.previewImage}
@@ -117,7 +127,7 @@ export default function PlatformsPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
-                  <div className="absolute bottom-4 right-4 flex items-center gap-1.5 px-3 py-1.5 bg-black/85 backdrop-blur-md rounded-[2px] border border-white/15 text-white text-xs font-mono opacity-90 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute bottom-4 right-4 flex items-center gap-1.5 px-3 py-1.5 bg-black/85 backdrop-blur-md border border-white/20 text-white text-xs font-mono opacity-90 group-hover:opacity-100 transition-opacity">
                     <span>Explore Interface</span>
                     <ArrowUpRight size={13} />
                   </div>
@@ -133,10 +143,10 @@ export default function PlatformsPage() {
               {/* Right Column: Platform Identity, Metrics, and Verified Capabilities */}
               <div className="lg:col-span-5 space-y-6">
                 <div className="space-y-2">
-                  <h2 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                     {platform.name}
                   </h2>
-                  <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed">
                     {platform.headline}
                   </p>
                   <p className="text-xs text-neutral-400 font-light leading-relaxed pt-1">
@@ -144,14 +154,14 @@ export default function PlatformsPage() {
                   </p>
                 </div>
 
-                {/* Platform Mini-Metrics */}
-                <div className="grid grid-cols-2 gap-3 py-4 border-y border-white/[0.06]">
+                {/* Platform Mini-Metrics (Defined Grid) */}
+                <div className="grid grid-cols-2 gap-3 py-4 border-y border-white/[0.08]">
                   {platform.metrics.map((m) => (
                     <div key={m.label} className="space-y-0.5">
-                      <div className="text-base sm:text-lg font-mono text-white">
+                      <div className="text-base sm:text-lg font-bold font-mono text-white">
                         {m.value}
                       </div>
-                      <div className="text-[10px] font-mono text-neutral-500 uppercase">
+                      <div className="text-[10px] font-mono text-neutral-400 uppercase">
                         {m.label}
                       </div>
                     </div>
@@ -163,7 +173,7 @@ export default function PlatformsPage() {
                   <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
                     VERIFIED CAPABILITIES
                   </div>
-                  <ul className="space-y-2 text-xs text-neutral-300 font-light">
+                  <ul className="space-y-2 text-xs text-neutral-300 font-normal">
                     {platform.capabilities.map((cap) => (
                       <li key={cap} className="flex items-start gap-2">
                         <Check size={13} className="text-neutral-400 mt-0.5 shrink-0" />
@@ -179,7 +189,7 @@ export default function PlatformsPage() {
                     href={platform.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 bg-white text-black font-medium hover:bg-neutral-200 transition-colors inline-flex items-center gap-1.5 uppercase tracking-wider"
+                    className="px-4 py-2 bg-white text-black font-semibold hover:bg-neutral-200 transition-colors inline-flex items-center gap-1.5 uppercase tracking-wider"
                   >
                     <span>Launch Platform</span>
                     <ArrowUpRight size={13} />
@@ -189,7 +199,7 @@ export default function PlatformsPage() {
                     href={platform.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 border border-white/15 text-neutral-300 hover:text-white hover:border-white/30 transition-colors inline-flex items-center gap-1.5 uppercase tracking-wider"
+                    className="px-4 py-2 border border-white/20 text-neutral-300 hover:text-white hover:border-white/40 transition-colors inline-flex items-center gap-1.5 uppercase tracking-wider"
                   >
                     <span>GitHub Code</span>
                     <ArrowUpRight size={12} />
@@ -201,37 +211,37 @@ export default function PlatformsPage() {
         ))}
       </div>
 
-      {/* ─── Atelier Engine Architecture (Preserved & Unified) ─── */}
-      <section className="pt-16 border-t border-white/[0.08] space-y-10">
+      {/* ─── Atelier Engine Architecture (Defined Cursor Grid) ─── */}
+      <section className="pt-16 border-t border-white/[0.1] space-y-10">
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
           <div className="space-y-1">
-            <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
+            <div className="text-[11px] font-mono uppercase tracking-widest text-neutral-500">
               02 / RUNTIME ARCHITECTURE
             </div>
-            <h2 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Sovereign Foundation &amp; Architecture
             </h2>
           </div>
           <Link
             href="/platforms/atelier"
-            className="text-xs font-mono uppercase tracking-widest text-neutral-400 hover:text-white transition-colors inline-flex items-center gap-1"
+            className="text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-colors inline-flex items-center gap-1 underline underline-offset-4"
           >
             <span>Atelier Case Study</span>
             <ArrowUpRight size={12} />
           </Link>
         </div>
 
-        {/* 3 Architectural Tenets */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* 3 Architectural Tenets in Defined Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 border-y border-white/[0.1] divide-y md:divide-y-0 md:divide-x divide-white/[0.1]">
           {architecturalTenets.map((t) => (
-            <div key={t.title} className="space-y-2">
-              <span className="text-[10px] font-mono text-neutral-600 block">
+            <div key={t.title} className="p-6 sm:p-8 space-y-2">
+              <span className="text-[11px] font-mono text-neutral-600 block">
                 {t.index}
               </span>
-              <h3 className="text-sm font-medium text-white tracking-tight">
+              <h3 className="text-sm font-bold text-white tracking-tight uppercase">
                 {t.title}
               </h3>
-              <p className="text-xs text-neutral-400 font-light leading-relaxed">
+              <p className="text-xs text-neutral-400 font-normal leading-relaxed">
                 {t.description}
               </p>
             </div>
@@ -240,7 +250,7 @@ export default function PlatformsPage() {
       </section>
 
       {/* ─── Scalability Note for Future Platforms ─── */}
-      <div className="pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-neutral-500">
+      <div className="pt-8 border-t border-white/[0.1] flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-neutral-500">
         <div>
           <span>ECOSYSTEM CATALOG · MAINTAINED BY @ENTELECHAE-ENG</span>
         </div>
