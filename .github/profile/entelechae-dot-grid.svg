@@ -1,0 +1,72 @@
+<svg width="1200" height="280" viewBox="0 0 1200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Dark Dot Grid Pattern -->
+    <pattern id="dot-matrix" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#2d333b" opacity="0.8" />
+    </pattern>
+
+    <!-- Radial Mask to fade the dots outward -->
+    <radialGradient id="dot-fade" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1" />
+    </radialGradient>
+    <mask id="fade-mask">
+      <rect width="1200" height="280" fill="url(#dot-fade)" />
+    </mask>
+
+    <!-- Linear Glow Gradient -->
+    <linearGradient id="brand-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12" />
+      <stop offset="50%" stop-color="#39d353" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Border Glow -->
+    <linearGradient id="border-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#30363d" stop-opacity="0" />
+      <stop offset="50%" stop-color="#58a6ff" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#30363d" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="1200" height="280" rx="12" fill="#0d1117" />
+  <rect width="1200" height="280" rx="12" fill="url(#brand-glow)" />
+
+  <!-- Dot Matrix Pattern Layer with Mask -->
+  <rect width="1200" height="280" rx="12" fill="url(#dot-matrix)" mask="url(#fade-mask)" />
+
+  <!-- Outer Border -->
+  <rect x="0.5" y="0.5" width="1199" height="279" rx="11.5" stroke="#30363d" stroke-width="1" />
+  <line x1="100" y1="279" x2="1100" y2="279" stroke="url(#border-line)" stroke-width="2" />
+
+  <!-- Brand Typography -->
+  <g transform="translate(60, 75)">
+    <!-- Small Status Tag -->
+    <rect x="0" y="0" width="148" height="24" rx="12" fill="#161b22" stroke="#30363d" />
+    <circle cx="12" cy="12" r="4" fill="#39d353" />
+    <text x="24" y="16" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace" font-size="11" font-weight="600" letter-spacing="1">SOVEREIGN CORE</text>
+
+    <!-- Main Title -->
+    <text x="0" y="65" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="700" letter-spacing="-0.5">Entelechæ Sovereign Systems</text>
+
+    <!-- Subtitle -->
+    <text x="0" y="98" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">
+      Deep Computational Synthesis · 120 FPS WebGPU Engine · Local-First Architecture
+    </text>
+  </g>
+
+  <!-- Right Decorative Metrics Grid (Dot-Matrix Inspired) -->
+  <g transform="translate(900, 60)">
+    <!-- Metric 1 -->
+    <rect x="0" y="0" width="240" height="64" rx="8" fill="#161b22" stroke="#30363d" />
+    <text x="18" y="28" fill="#58a6ff" font-family="monospace" font-size="18" font-weight="700">29,627+</text>
+    <text x="18" y="48" fill="#8b949e" font-family="sans-serif" font-size="11" font-weight="500" letter-spacing="0.5">OPEN RESOURCES</text>
+
+    <!-- Metric 2 -->
+    <rect x="0" y="76" width="240" height="64" rx="8" fill="#161b22" stroke="#30363d" />
+    <text x="18" y="104" fill="#39d353" font-family="monospace" font-size="18" font-weight="700">100% LOCAL</text>
+    <text x="18" y="124" fill="#8b949e" font-family="sans-serif" font-size="11" font-weight="500" letter-spacing="0.5">ZERO TELEMETRY</text>
+  </g>
+</svg>
