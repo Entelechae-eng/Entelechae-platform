@@ -1,0 +1,55 @@
+<svg width="860" height="150" viewBox="0 0 860 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #ffffff; }
+    .dot-0 { fill: #ebedf0; }
+    .dot-1 { fill: #9be9a8; }
+    .dot-2 { fill: #40c463; }
+    .dot-3 { fill: #30a14e; }
+    .dot-4 { fill: #216e39; }
+    
+    @keyframes moveSnake {
+      0%   { transform: translate(45px, 25px); }
+      15%  { transform: translate(180px, 25px); }
+      25%  { transform: translate(180px, 70px); }
+      40%  { transform: translate(360px, 70px); }
+      55%  { transform: translate(360px, 115px); }
+      70%  { transform: translate(600px, 115px); }
+      85%  { transform: translate(600px, 40px); }
+      100% { transform: translate(800px, 40px); }
+    }
+    
+    .snake-body {
+      animation: moveSnake 8s linear infinite;
+    }
+  </style>
+
+  <rect width="860" height="150" rx="8" class="bg" stroke="#d0d7de" stroke-width="1" />
+
+  <g transform="translate(30, 20)">
+    <!-- Dots Grid -->
+    <rect x="0" y="0" width="11" height="11" rx="2" class="dot-0"/>
+    <rect x="0" y="15" width="11" height="11" rx="2" class="dot-1"/>
+    <rect x="0" y="30" width="11" height="11" rx="2" class="dot-0"/>
+    <rect x="0" y="45" width="11" height="11" rx="2" class="dot-2"/>
+    <rect x="0" y="60" width="11" height="11" rx="2" class="dot-0"/>
+    <rect x="0" y="75" width="11" height="11" rx="2" class="dot-1"/>
+    <rect x="0" y="90" width="11" height="11" rx="2" class="dot-0"/>
+
+    <rect x="15" y="0" width="11" height="11" rx="2" class="dot-1"/>
+    <rect x="15" y="15" width="11" height="11" rx="2" class="dot-2"/>
+    <rect x="15" y="30" width="11" height="11" rx="2" class="dot-3"/>
+    <rect x="15" y="45" width="11" height="11" rx="2" class="dot-0"/>
+    <rect x="15" y="60" width="11" height="11" rx="2" class="dot-1"/>
+    <rect x="15" y="75" width="11" height="11" rx="2" class="dot-0"/>
+    <rect x="15" y="90" width="11" height="11" rx="2" class="dot-2"/>
+
+    <g class="snake-body">
+      <rect x="-30" y="0" width="11" height="11" rx="2" fill="#40c463" opacity="0.6"/>
+      <rect x="-15" y="0" width="11" height="11" rx="2" fill="#30a14e" opacity="0.8"/>
+      <rect x="0" y="0" width="11" height="11" rx="2" fill="#216e39" stroke="#ffffff" stroke-width="1.5"/>
+      <circle cx="8" cy="3" r="1" fill="#ffffff"/>
+      <circle cx="8" cy="8" r="1" fill="#ffffff"/>
+    </g>
+  </g>
+</svg>
+
