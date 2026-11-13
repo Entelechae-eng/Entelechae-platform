@@ -1,0 +1,82 @@
+<svg width="900" height="340" viewBox="0 0 900 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    @keyframes starPulse {
+      0%, 100% { opacity: 0.3; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+    .cursor {
+      animation: blink 1s step-start infinite;
+    }
+    .star-1 { animation: starPulse 2s ease-in-out infinite; transform-origin: 450px 170px; }
+    .star-2 { animation: starPulse 3s ease-in-out infinite 0.7s; transform-origin: 450px 170px; }
+    .star-3 { animation: starPulse 2.5s ease-in-out infinite 1.4s; transform-origin: 450px 170px; }
+  </style>
+
+  <!-- Terminal Window Background -->
+  <rect width="900" height="340" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="1.5" />
+
+  <!-- Terminal Header Bar -->
+  <rect width="900" height="38" rx="10" fill="#161b22" />
+  <rect y="28" width="900" height="10" fill="#161b22" />
+  <line x1="0" y1="38" x2="900" y2="38" stroke="#30363d" stroke-width="1" />
+
+  <!-- Window Controls -->
+  <circle cx="22" cy="19" r="6" fill="#ff5f56" />
+  <circle cx="42" cy="19" r="6" fill="#ffbd2e" />
+  <circle cx="62" cy="19" r="6" fill="#27c93f" />
+
+  <!-- Window Title -->
+  <text x="450" y="23" text-anchor="middle" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="12" font-weight="600">
+    entelechae-agent — sovereign-cli — 120 FPS WebGPU
+  </text>
+
+  <!-- Terminal Body Content -->
+  <!-- ASCII Starfield Background Layer -->
+  <g fill="#58a6ff" font-family="monospace" font-size="12" opacity="0.6">
+    <text x="80" y="80" class="star-1">*</text>
+    <text x="240" y="110" class="star-2">.</text>
+    <text x="720" y="90" class="star-3">+</text>
+    <text x="810" y="140" class="star-1">*</text>
+    <text x="140" y="210" class="star-2">+</text>
+    <text x="760" y="240" class="star-3">.</text>
+    <text x="830" y="280" class="star-1">*</text>
+    <text x="70" y="290" class="star-2">.</text>
+  </g>
+
+  <!-- Agent CLI Prompt Lines -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'SF Mono', Consolas, 'Courier New', monospace" font-size="13">
+    <!-- Line 1: Command Initiation -->
+    <text x="35" y="75" fill="#39d353" font-weight="bold">&gt; entelechae.init()</text>
+    <text x="220" y="75" fill="#8b949e">--mode=sovereign --anti-slop=strict --fps=120</text>
+
+    <!-- Line 2: Runtime Status -->
+    <text x="35" y="105" fill="#8b949e">  [substrate] client-side WebGPU</text>
+    <text x="310" y="105" fill="#39d353">✓ active</text>
+    <text x="390" y="105" fill="#8b949e">[telemetry] zero tracking</text>
+    <text x="590" y="105" fill="#39d353">✓ verified</text>
+
+    <!-- Line 3: ASCII Banner Box -->
+    <text x="35" y="140" fill="#58a6ff">  ┌─────────────────────────────────────────────────────────────┐</text>
+    <text x="35" y="162" fill="#58a6ff">  │</text>
+    <text x="60" y="162" fill="#f0f6fc" font-weight="bold">✦ ENTELECHÆ SOVEREIGN LAB</text>
+    <text x="300" y="162" fill="#8b949e">· Systems Engineered to Endure</text>
+    <text x="605" y="162" fill="#58a6ff">│</text>
+    <text x="35" y="184" fill="#58a6ff">  └─────────────────────────────────────────────────────────────┘</text>
+
+    <!-- Line 4: Philosophy -->
+    <text x="35" y="215" fill="#f0f6fc">  "Give agents taste. Eliminate AI slop. Build permanent software."</text>
+
+    <!-- Line 5: Tool Calls & Capabilities -->
+    <text x="35" y="248" fill="#39d353">&gt; load_ecosystem()</text>
+    <text x="35" y="275" fill="#8b949e">  ├─ visuals: 29,627+ motion primitives &amp; WebGL shaders</text>
+    <text x="35" y="298" fill="#8b949e">  ├─ code: sovereign AI workbench with local SQLite &amp; MCP</text>
+    <text x="35" y="321" fill="#8b949e">  └─ cinema: code-driven generative launch films &amp; audio</text>
+
+    <!-- Active Blinking Terminal Cursor -->
+    <rect x="525" y="309" width="8" height="15" fill="#39d353" class="cursor" />
+  </g>
+</svg>
